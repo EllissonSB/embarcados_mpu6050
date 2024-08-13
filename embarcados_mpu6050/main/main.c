@@ -15,9 +15,6 @@ void app_main(void)
     Quaternion dados_quaternion;
     EulerAngle dados_eulerangle;
     ret=imu_read_data(&dados_sensor);
-    printf("Dados do sensor\n");
-    printf("Accel: X=%.2f, Y=%.2f, Z=%.2f\n\n", dados_sensor.accel_x, dados_sensor.accel_y, dados_sensor.accel_z);
-    printf("Gyro: X=%.2f, Y=%.2f, Z=%.2f\n\n", dados_sensor.gyro_x, dados_sensor.gyro_y, dados_sensor.gyro_z);
     printf("%d\n",ret);
     ret=imu_calculate_quaternion(&dados_sensor,&dados_quaternion);
     printf("quaternion: q_w=%.2f q_x=%.2f q_y=%.2f q_z=%.2f\n\n",dados_quaternion.w,dados_quaternion.x,dados_quaternion.y,dados_quaternion.z);
