@@ -1,35 +1,77 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+# Projeto Sistemas Embarcados 2024.1
 
-# _Sample project_
+## Componentes Utilizados
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+- 1x ESP32 + Fonte (5V)
+- 1x Sensor MPU6050
+- 2x Servomotores
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+##  Sobre o Projeto
 
+O objetivo é unir as bibliotecas do servomotor e do sensor MPU6050 feitas anteriormente para construção de uma aplicação que executa o ajuste de angulação dos servomotores com base na variação do giroscópio do sensor MPU6050.
 
+### Estrutura do github do projeto final
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
-
-## Example folder contents
-
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
+```txt
+components/
+    imu_tools/
+        include/
+            imu_tools.h
+        CMakeLists.txt
+        imu_tools.c
+    mpu6050_driver/
+        include/
+            mpu6050_driver.h
+        CMakeLists.txt
+        mpu6050_driver.c
+    sensor_imu/
+        include/
+            sensor_imu.h
+        CMakeLists.txt
+        sensor_imu.c
+    servo_hw/
+        include/
+            servo_hw.h
+        CMakeLists.txt
+        servo_hw.c
+    servo_tools/
+        include/
+            servo_tools.h
+        CMakeLists.txt
+        servo_tools.c
+main/
+    CMakeLists.txt
+    main.c
+CMakeLists.txt
+diagram.json
+sdkconfig
+sdkconfig.old
+README.md
 
 ```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+
+## Máquina de Estados
+
+![Máquina de Estados](anexos/maquina_estados.png "Máquina de Estados")
+
+## Diagrama de Bloco do Protótipo do Hardware
+
+![Diagrama de bloco do hardware](anexos/diagrama_bloco.png "Diagrama de bloco do protótipo do hardware")
+
+## Esquemático do Hardware
+
+![Esquemático do hardware](anexos/diagrama_eletrico.png "Esquemático do protótipo do hardware")
+
+## Arquitetura
+
+![Arquitetura](anexos/arquitetura.png "Arquitetura")
+
+## Demonstração
+
+
+
+## Relatório do Projeto Final
+
+Utilizamos as bibliotecas do [grupo 6 para o sensor](https://github.com/luizh-silva-oliveira/projeto-sistemas-embarcados?authuser=0) e do [grupo 4 para o servomotor](https://github.com/henrique-lh/Projeto-sistemas-embarcados?authuser=0).
+
+Não tivemos problemas para trabalhar com elas.
