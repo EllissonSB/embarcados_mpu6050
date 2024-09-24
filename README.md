@@ -52,7 +52,7 @@ README.md
 
 ## Máquina de Estados
 
-![Máquina de Estados](anexos/maquina_estados.png "Máquina de Estados")
+![Máquina de Estados](projeto_final/anexos/maquina_estados.png "Máquina de Estados")
 
 ## Diagrama de Bloco do Protótipo do Hardware
 
