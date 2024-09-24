@@ -56,15 +56,15 @@ README.md
 
 ## Diagrama de Bloco do Protótipo do Hardware
 
-![Diagrama de bloco do hardware](anexos/diagrama_bloco.png "Diagrama de bloco do protótipo do hardware")
+![Diagrama de bloco do hardware](projeto_final/anexos/diagrama_bloco.png "Diagrama de bloco do protótipo do hardware")
 
 ## Esquemático do Hardware
 
-![Esquemático do hardware](anexos/diagrama_eletrico.png "Esquemático do protótipo do hardware")
+![Esquemático do hardware](projeto_final/anexos/diagrama_eletrico.png "Esquemático do protótipo do hardware")
 
 ## Arquitetura
 
-![Arquitetura](anexos/arquitetura.png "Arquitetura")
+![Arquitetura](projeto_final/anexos/arquitetura.png "Arquitetura")
 
 ## Demonstração
 
