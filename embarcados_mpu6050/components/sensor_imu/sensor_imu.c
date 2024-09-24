@@ -46,6 +46,19 @@ esp_err_t imu_get_acceleration_data(AccelerationData *data){
     data->accel_x = (data1[0] << 8) | data1[1];
     data->accel_y = (data1[2] << 8) | data1[3];
     data->accel_z = (data1[4] << 8) | data1[5];
+    
+    // Converter os dados em valores de aceleração (16 bits)
+    data->accel_x = (uint16_t)((data1[0] << 8) | data1[1]);
+    data->accel_y =  (uint16_t)((data1[2] << 8) | data1[3]);
+    data->accel_z =  (uint16_t)((data1[4] << 8) | data1[5]);
+
+    data->accel_x = data->accel_x / ACCEL_SCALE * 9.81; // Convertendo para m/s²
+    data->accel_y =  data->accel_y / ACCEL_SCALE * 9.81; // Convertendo para m/s²
+    data->accel_z =  data->accel_z/ ACCEL_SCALE * 9.81; // Convertendo para m/s²
+
+    data->accel_x =  data->accel_x/9.80665; // Convertendo para g
+    data->accel_y =  data->accel_y/9.80665; // Convertendo para g
+    data->accel_z =  data->accel_z/9.80665; // Convertendo para g
     return ESP_OK;
 }
 esp_err_t imu_get_gyroscope_data(GyroscopeData *data){
@@ -60,6 +73,17 @@ esp_err_t imu_get_gyroscope_data(GyroscopeData *data){
     data->gyro_x = (data1[0] << 8) | data1[1];
     data->gyro_y = (data1[2] << 8) | data1[3];
     data->gyro_z = (data1[4] << 8) | data1[5];
+    data->gyro_x = data->gyro_x / GYRO_SCALE * RAD_PER_DEG; // Convertendo para rad/s
+    data->gyro_y = data->gyro_y / GYRO_SCALE * RAD_PER_DEG; // Convertendo para rad/s
+    data->gyro_z = data->gyro_z / GYRO_SCALE * RAD_PER_DEG; // Convertendo para rad/s
+
+    data->gyro_x *= RAD_TO_DEG;
+    data->gyro_y *= RAD_TO_DEG;
+    data->gyro_z *= RAD_TO_DEG;
+
+    data->gyro_x /= 2;
+    data->gyro_y /= 2;
+    data->gyro_z /= 2;
     return ESP_OK;
 }
 esp_err_t imu_deinit(){

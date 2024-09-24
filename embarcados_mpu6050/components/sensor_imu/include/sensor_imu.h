@@ -26,6 +26,12 @@
 #define I2C_MASTER_TX_BUF_DISABLE 0 // Desabilitar buffer de transmissão
 #define I2C_MASTER_RX_BUF_DISABLE 0 // Desabilitar buffer de recepção
 #define I2C_MASTER_TIMEOUT_MS 1000  // Tempo limite de timeout em milissegundos
+
+
+#define RAD_TO_DEG             (180.0 / M_PI)       /**< Conversão de radianos para graus. */
+#define RAD_PER_DEG            (3.14159265358979 / 180.0) /**< Conversão de graus para radianos. */
+#define ACCEL_SCALE 16384.0f        // Escala do acelerômetro para ±2g
+#define GYRO_SCALE           65.5              /**< Fator de escala para ±250°/s. */
 typedef struct {
     // Leituras do acelerômetro
     float accel_x;
